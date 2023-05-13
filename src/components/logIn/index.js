@@ -6,9 +6,11 @@ import logo from "../../assets/Logo.png";
 //icons
 import { RiLockPasswordLine } from "react-icons/ri";
 import { TbMessage2 } from "react-icons/tb";
+import { BsArrowLeft } from "react-icons/bs";
+
+import { Link } from "react-router-dom";
 
 //image
-import emailIcon from "../../assets/icons/messagetext1.png";
 import image from "../../assets/images/Rectangle 2 (1).png";
 
 //formik
@@ -16,6 +18,8 @@ import { useFormik } from "formik";
 
 //yup
 import * as Yup from "yup";
+import { TextInput } from "../textInput";
+// import { axiosInstance } from "../../services/axiosInstance";
 
 const LogIn = () => {
   const formik = useFormik({
@@ -34,70 +38,88 @@ const LogIn = () => {
       console.log("submit");
     },
   });
+
+
+
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex flex-row-reverse ">
       <div className="w-2/4 bg-white  rounded-tl-lg rounded-bl-lg">
-        <div>
-          <div className="flex justify-center items-center flex-col">
+        <div className="flex justify-center items-center flex-col">
+          <div className="text-center">
             <img
               src={logo}
               alt="logo"
-              className="w-[150px] h-[150px] mt-[60px] mb-[30px]"
+              className="w-[120px] h-[120px] mt-[40px] "
             />
-            <h1 className="text-[40px]">ورود به داشبورد</h1>
-            <a
-              href="#"
+            <h1 className="text-[36px]">ورود به داشبورد</h1>
+            <Link
+              to="register"
               className="text-[20px] leading-[31px] no-underline py-[15px] text-[#388AEA]"
             >
               هنوز ثبت نام نکرده اید؟
-            </a>
-            <div className="px-[53px] w-full mt-[50px]">
-              <form onSubmit={formik.handleSubmit}>
-              <div className="relative mb-10">
-                  <label className="absolute -top-3 mx-[41px] px-[10px] z-10 bg-white">
-                    رمز عبور
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="example@mail.com"
-                    className="placeholder-[#D6D6D6] text-[16px] relative border border-solid border-[#D6D6D6] h-[60px] w-full rounded-full py-[15px] px-[80px]"
-                  />
-                  <div className="absolute top-[33.33%] right-[20px] w-10 h-5 border border-solid border-[#D6D6D6] border-t-0 border-b-0 border-r-0">
-                    <TbMessage2 size={24} />
-                  </div>
-                </div>
+            </Link>
+          </div>
 
-                <div className="relative">
-                  <label className="absolute -top-3 mx-[41px] px-[10px] z-10 bg-white">
-                    رمز عبور
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="حداقل 8 کاراکتر"
-                    className="placeholder-[#D6D6D6] text-[16px] relative border border-solid border-[#D6D6D6] h-[60px] w-full rounded-full py-[15px] px-[80px]"
-                  />
-                  <div className="absolute top-[33.33%] right-[20px] w-10 h-5 border border-solid border-[#D6D6D6] border-t-0 border-b-0 border-r-0">
-                    <RiLockPasswordLine size={24} />
+          <div className="px-[53px] w-full mt-[50px]">
+            <form
+              onSubmit={formik.handleSubmit}
+              className="flex justify-center items-center flex-col"
+            >
+              <div className="mb-10 w-full">
+                <TextInput
+                  icon={<TbMessage2 size={30} />}
+                  label={"ایمیل"}
+                  type="email"
+                  placeholder={"example@mail.com"}
+                  {...formik.getFieldProps("email")}
+                />
+
+                {formik.errors.email ? (
+                  <div className="text-rose-700 text-[14px]">
+                    {formik.errors.email}
                   </div>
-                </div>
-                <div>
-                  <a href="#">ورود به حساب </a>
-                </div>
-              </form>
-            </div>
+                ) : null}
+              </div>
+
+              <div className="mb-10 w-full">
+                <TextInput
+                  icon={<RiLockPasswordLine size={30} />}
+                  label={"رمز عبور"}
+                  type="password"
+                  placeholder={"حداقل 8 کاراکتر"}
+                  {...formik.getFieldProps("password")}
+                />
+
+                {formik.errors.password ? (
+                  <div className="text-rose-700 text-[14px]">
+                    {formik.errors.password}
+                  </div>
+                ) : null}
+              </div>
+              {/* <button onClick={handleRegister}>fake register</button> */}
+
+              {/* <a href="#" className="no-underline "> */}
+              <button
+                type="submit"
+                className=" flex gap-x-4 h-[50px] items-center bg-[#388AEA] text-white border-none rounded-[18px] text-[14px] px-6 py-6 tracking-[1px] cursor-pointer"
+              >
+                ورود به حساب <BsArrowLeft size={22} />
+              </button>
+              {/* </a> */}
+            </form>
           </div>
         </div>
       </div>
       <div className="w-2/4 bg-[#388AEA]  rounded-tr-lg rounded-br-lg px-[117px] ">
         <div className="flex flex-col justify-center items-center  ">
-          <h2 className="text-[36px] text-white pt-[85px] ">
+          <h2 className="text-[36px] text-white mt-[70px] ">
             صرافی ارز دیجیتال نیوکوین اسپیس
           </h2>
           <p className="w-[324px] text-white text-[20px] font-medium leading-[31px] mt-[21px]">
             خرید و فروش امن بیت‌کوین و ارزهای دیجیتال به بزرگترین بازار ارز
             دیجیتال ایران بپیوندید
           </p>
-          <img src={image} alt="image" />
+          <img src={image} alt="image" className="h-[330px] mt-[50px]" />
         </div>
       </div>
     </div>
