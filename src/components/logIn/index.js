@@ -3,6 +3,10 @@ import React from "react";
 //logo
 import logo from "../../assets/Logo.png";
 
+//icons
+import { RiLockPasswordLine } from "react-icons/ri";
+import { TbMessage2 } from "react-icons/tb";
+
 //image
 import emailIcon from "../../assets/icons/messagetext1.png";
 import image from "../../assets/images/Rectangle 2 (1).png";
@@ -31,29 +35,53 @@ const LogIn = () => {
     },
   });
   return (
-    <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex flex-row-reverse " >
+    <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex flex-row-reverse ">
       <div className="w-2/4 bg-white  rounded-tl-lg rounded-bl-lg">
         <div>
-          <div className="flex justify-center items-center flex-col pt-[85px]">
-            <img src={logo} alt="logo" className="w-[101px] h-[94px]" />
-            <p>ورود به داشبورد</p>
-            <a href="#" className="text-[20px] leading-[31px] no-underline">
+          <div className="flex justify-center items-center flex-col">
+            <img
+              src={logo}
+              alt="logo"
+              className="w-[150px] h-[150px] mt-[60px] mb-[30px]"
+            />
+            <h1 className="text-[40px]">ورود به داشبورد</h1>
+            <a
+              href="#"
+              className="text-[20px] leading-[31px] no-underline py-[15px] text-[#388AEA]"
+            >
               هنوز ثبت نام نکرده اید؟
             </a>
-            <div className="px-[53px] w-full">
+            <div className="px-[53px] w-full mt-[50px]">
               <form onSubmit={formik.handleSubmit}>
-                <div className="relative">
+              <div className="relative mb-10">
                   <label className="absolute -top-3 mx-[41px] px-[10px] z-10 bg-white">
-                    ایمیل
+                    رمز عبور
                   </label>
                   <input
                     type="email"
                     placeholder="example@mail.com"
-                    className="relative border border-solid border-[#D6D6D6] h-[60px] w-full rounded-full pr-[86px]"
+                    className="placeholder-[#D6D6D6] text-[16px] relative border border-solid border-[#D6D6D6] h-[60px] w-full rounded-full py-[15px] px-[80px]"
                   />
-                  <div className="absolute top-[33.33%]">
-                    <img src={emailIcon} alt="emailIcon" />
+                  <div className="absolute top-[33.33%] right-[20px] w-10 h-5 border border-solid border-[#D6D6D6] border-t-0 border-b-0 border-r-0">
+                    <TbMessage2 size={24} />
                   </div>
+                </div>
+
+                <div className="relative">
+                  <label className="absolute -top-3 mx-[41px] px-[10px] z-10 bg-white">
+                    رمز عبور
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="حداقل 8 کاراکتر"
+                    className="placeholder-[#D6D6D6] text-[16px] relative border border-solid border-[#D6D6D6] h-[60px] w-full rounded-full py-[15px] px-[80px]"
+                  />
+                  <div className="absolute top-[33.33%] right-[20px] w-10 h-5 border border-solid border-[#D6D6D6] border-t-0 border-b-0 border-r-0">
+                    <RiLockPasswordLine size={24} />
+                  </div>
+                </div>
+                <div>
+                  <a href="#">ورود به حساب </a>
                 </div>
               </form>
             </div>
@@ -69,7 +97,7 @@ const LogIn = () => {
             خرید و فروش امن بیت‌کوین و ارزهای دیجیتال به بزرگترین بازار ارز
             دیجیتال ایران بپیوندید
           </p>
-          <img src={image} alt="image"/>
+          <img src={image} alt="image" />
         </div>
       </div>
     </div>
