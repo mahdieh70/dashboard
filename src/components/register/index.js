@@ -1,9 +1,11 @@
 import React from "react";
 import { TextInput } from "../textInput";
 
-//logo
+import { Link, useNavigate } from "react-router-dom";
 
-import logo from "../../assets/Logo.png";
+//components
+
+import ProgressBar from "../progressBar";
 
 //icons
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -18,6 +20,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleClick = () => navigate("/sendingCode");
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -38,15 +42,9 @@ const Register = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <div className="bg-[#388AEA] w-[25%] h-full rounded-tr-lg rounded-br-lg">
-          <div className="flex items-center flex-col pt-[60px]">
-            <img src={logo} alt="logo" className="w-[120px] h-[120px]"/>
-            <h2>ثبت نام</h2>
-          </div>
-          <div></div>
-        </div>
+        <ProgressBar />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
-          <div className="flex items-center flex-col text-center px-[130px] pb-[180px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
+          <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
               <p className="text-[#388AEA]">مرحله 1 از 3</p>
               <p className="pt-2 mb-8 text-[#1e1e1e]">
@@ -85,12 +83,17 @@ const Register = () => {
               </form>
             </div>
           </div>
-          <div className="flex flex-row-reverse">
-            <a href="#" className="no-underline">
+          <div className="flex flex-row-reverse mt-6">
+            <Link
+              to="/sendingCode"
+              onClick={handleClick}
+              className="no-underline"
+            >
               <button type="submit" className="button">
                 مرحله بعد <BsArrowLeft />
               </button>
-            </a>
+
+            </Link>
           </div>
         </div>
       </div>

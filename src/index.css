@@ -1,4 +1,4 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -18,5 +18,16 @@
 @layer components {
   .button {
     @apply flex gap-x-4 h-[50px] items-center bg-[#388AEA] text-white border-none rounded-[18px] text-[14px] px-6 py-6 tracking-[1px] cursor-pointer;
+  }
+  .deActiveButton {
+    @apply flex gap-x-4 h-[50px] items-center bg-[#CECECE] text-white border-none rounded-[18px] text-[14px] px-6 py-6 tracking-[1px] cursor-pointer;
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
