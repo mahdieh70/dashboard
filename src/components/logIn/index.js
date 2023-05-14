@@ -26,6 +26,7 @@ const LogIn = () => {
     initialValues: {
       email: "",
       password: "",
+      fullname: "",
     },
     //form validation
     validationSchema: Yup.object({
@@ -33,13 +34,14 @@ const LogIn = () => {
         .email("ایمیل نامعتبر است.")
         .required("لطفا ایمیل خود را وارد کنید."),
       password: Yup.string().required("لطفا رمز عبور خود را وارد کنید."),
+      fullname: Yup.string().required(
+        "لطفا نام و نام خانوادگی خود را وارد کنید"
+      ),
     }),
     onSubmit: () => {
       console.log("submit");
     },
   });
-
-
 
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex flex-row-reverse ">
@@ -98,14 +100,14 @@ const LogIn = () => {
               </div>
               {/* <button onClick={handleRegister}>fake register</button> */}
 
-              {/* <a href="#" className="no-underline "> */}
+              <a href="#" className="no-underline ">
               <button
                 type="submit"
-                className=" flex gap-x-4 h-[50px] items-center bg-[#388AEA] text-white border-none rounded-[18px] text-[14px] px-6 py-6 tracking-[1px] cursor-pointer"
+                className="button"
               >
                 ورود به حساب <BsArrowLeft size={22} />
               </button>
-              {/* </a> */}
+              </a>
             </form>
           </div>
         </div>

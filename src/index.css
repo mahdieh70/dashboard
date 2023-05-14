@@ -14,3 +14,9 @@
   box-sizing: border-box;
   font-family: "YekanBakh";
 }
+
+@layer components {
+  .button {
+    @apply flex gap-x-4 h-[50px] items-center bg-[#388AEA] text-white border-none rounded-[18px] text-[14px] px-6 py-6 tracking-[1px] cursor-pointer;
+  }
+}
