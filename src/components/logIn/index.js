@@ -26,17 +26,15 @@ const LogIn = () => {
     initialValues: {
       email: "",
       password: "",
-      fullname: "",
     },
     //form validation
     validationSchema: Yup.object({
       email: Yup.string()
         .email("ایمیل نامعتبر است.")
         .required("لطفا ایمیل خود را وارد کنید."),
-      password: Yup.string().required("لطفا رمز عبور خود را وارد کنید."),
-      fullname: Yup.string().required(
-        "لطفا نام و نام خانوادگی خود را وارد کنید"
-      ),
+      password: Yup.string()
+        .min(8, "حداقل 8 کاراکتر وارد کنید!")
+        .required("فیلد الزامی است!"),
     }),
     onSubmit: () => {
       console.log("submit");

@@ -19,10 +19,10 @@ import { useFormik } from "formik";
 
 //yup
 import * as Yup from "yup";
+import { validationNationalCode } from "../../utils/validationNationalCode";
 
 const Register = () => {
   const navigate = useNavigate();
-  const handleClick = () => navigate("/sendingCode");
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -33,13 +33,22 @@ const Register = () => {
       fullname: Yup.string().required(
         "لطفا نام و نام خانوادگی خود را وارد کنید"
       ),
-      nationalCode: Yup.string().required("لطفا کد ملی خود را وارد کنید"),
-      date: Yup.string().required("لطفا کد ملی خود را وارد کنید"),
+      nationalCode: Yup.string()
+        .length(10, "کد ملی باید 10 رقم باشد!")
+        .required("لطفا کد ملی خود را وارد کنید")
+        .test("test-name", "کد ملی معتبر نیست!", function (value) {
+          return validationNationalCode(value);
+        }),
+      date: Yup.string().required("لطفا تاریخ تولد خود را وارد کنید"),
     }),
     onSubmit: () => {
-      console.log("submit");
+      navigate("/sendingCode");
     },
   });
+  const handleSubmitForm = () => {
+    formik.handleSubmit();
+  };
+
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
@@ -53,7 +62,7 @@ const Register = () => {
               </p>
             </div>
             <div className="w-full pt-5">
-              <form>
+              <form onSubmit={formik.handleSubmit}>
                 <div className="mb-8">
                   <TextInput
                     icon={<img src={usersquerIcon} alt="usersquerIcon" />}
@@ -62,6 +71,11 @@ const Register = () => {
                     placeholder={"محمد حسین رحمتی"}
                     {...formik.getFieldProps("fullname")}
                   />
+                  {formik.errors.fullname ? (
+                    <div className="text-rose-700 text-[14px]">
+                      {formik.errors.fullname}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="mb-8">
                   <TextInput
@@ -71,6 +85,11 @@ const Register = () => {
                     placeholder={"208-1235-456"}
                     {...formik.getFieldProps("nationalCode")}
                   />
+                  {formik.errors.nationalCode ? (
+                    <div className="text-rose-700 text-[14px]">
+                      {formik.errors.nationalCode}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="mb-8">
                   <TextInput
@@ -85,12 +104,12 @@ const Register = () => {
             </div>
           </div>
           <div className="flex flex-row-reverse mt-6">
-            <Link
-              to="/sendingCode"
-              onClick={handleClick}
-              className="no-underline"
-            >
-              <button type="submit" className="button">
+            <Link className="no-underline">
+              <button
+                onClick={handleSubmitForm}
+                type="submit"
+                className="button"
+              >
                 مرحله بعد <BsArrowLeft />
               </button>
             </Link>
