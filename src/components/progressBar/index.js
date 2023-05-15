@@ -1,5 +1,5 @@
-
 import React from "react";
+import { Item } from "./item";
 
 //logo
 import logo from "../../assets/Logo.png";
@@ -12,52 +12,19 @@ const ProgressBar = ({ active }) => {
         <h1 className="text-white text-[30px]">ثبت نام</h1>
       </div>
       <div className="pr-8 pt-[35px]">
-        <div className="flex items-center pb-[10px]">
-          <div
-            className={
-              active === "registerActive"
-                ? "w-8 h-8 bg-[#9CC4F2] rounded-full border-[3.5px] border-solid border-white"
-                : "w-8 h-8 bg-[#9CC4F2] rounded-full"
-            }
-          ></div>
-          <div
-            className={
-              active === "registerActive"
-                ? "text-white text-[18px] mr-6 tracking-[1px]"
-                : "text-[#9CC4F2] text-[18px] mr-6 tracking-[1px]"
-            }
-          >
-            اطلاعات فردی
-          </div>
-        </div>
-        <span className="border-[1.5px] border-solid border-white relative right-[15px]"></span>
-        <div className="flex items-center pb-[10px] pt-[10px]">
-          <div
-            className={
-              active === "sendingCodeActive" ||
-              active === "verificationCodeActive"
-                ? "w-8 h-8 bg-[#9CC4F2] rounded-full border-[3.5px] border-solid border-white"
-                : "w-8 h-8 bg-[#9CC4F2] rounded-full"
-            }
-          ></div>
-          <div
-            className={
-              active === "sendingCodeActive" ||
-              active === "verificationCodeActive"
-                ? "text-white text-[18px] mr-6 tracking-[1px]"
-                : "text-[#9CC4F2] text-[18px] mr-6 tracking-[1px]"
-            }
-          >
-            اطلاعات ارتباطی
-          </div>
-        </div>
-        <span className="border-[1.5px] border-solid border-white relative right-[15px]"></span>
-        <div className="flex items-center pb-[10px] pt-[10px]">
-          <div className="w-8 h-8 bg-[#9CC4F2] rounded-full"></div>
-          <div className="text-[#9CC4F2] text-[18px] mr-6 tracking-[1px]">
-            اطلاعات مکانی
-          </div>
-        </div>
+        <Item
+          status={active === 1 ? "active" : active > 1 && "completed"}
+          text="اطلاعات فردی"
+        />
+        <Item
+          status={active === 2 ? "active" : active > 2 && "completed"}
+          text="اطلاعات ارتباطی"
+        />
+        <Item
+          isLast
+          status={active === 3 ? "active" : active > 3 && "completed"}
+          text="اطلاعات مکانی"
+        />
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const VerificationOfPhoneNumber = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar active="sendingCodeActive" />
+        <ProgressBar active={2} />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>

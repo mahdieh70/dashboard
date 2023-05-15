@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import PinInput from "react-pin-input";
+
 //formik
 import { useFormik } from "formik";
 
@@ -11,10 +13,7 @@ import * as Yup from "yup";
 import mobileIcon from "../../assets/icons/mobile.svg";
 import clipBoardTickIcon from "../../assets/icons/clipboardtick.svg";
 import messageText from "../../assets/icons/messagetext1.svg";
-
-//icon
 import { BsArrowLeft } from "react-icons/bs";
-
 
 //components
 import ProgressBar from "../progressBar";
@@ -40,7 +39,7 @@ const VerificationCode = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] px-8 py-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar active="verificationCodeActive" />
+        <ProgressBar active={2} />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
@@ -62,7 +61,7 @@ const VerificationCode = () => {
                 </div>
                 <div className="h-[60px] bg-[#E8F4FF] rounded-[50px] flex items-center">
                   <div className="w-10 h-5 mr-5">
-                    <img src={clipBoardTickIcon} alt="clipBoardTickIcon"/>
+                    <img src={clipBoardTickIcon} alt="clipBoardTickIcon" />
                   </div>
                   <p className="text-[14px]">
                     کد تائید به شماره 09015671346 ارسال شده است. این کد تا 02:00
@@ -71,12 +70,21 @@ const VerificationCode = () => {
                 </div>
                 <div className="flex justify-center items-center flex-col">
                   <p className="mt-6 mb-[10px]">کد تائید</p>
-                  <div className="flex items-center">
-                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
-                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
-                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
-                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
-                  </div>
+                  <PinInput
+                    length={4}
+                    initialValue=""
+                    onChange={(value, index) => {}}
+                    type="numeric"
+                    inputMode="numeric"
+                    style={{ padding: "10px" }}
+                    inputStyle={{
+                      borderColor: "#D6D6D6",
+                      borderRadius: "16px",
+                    }}
+                    onComplete={(value, index) => {}}
+                    autoSelect={true}
+                    regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                  />
 
                   <Link
                     to="/verificationOfPhoneNumber"
@@ -88,7 +96,7 @@ const VerificationCode = () => {
 
                 <div className="w-full">
                   <TextInput
-                    icon={<img src={messageText} alt="messageText"/>}
+                    icon={<img src={messageText} alt="messageText" />}
                     label={"ایمیل"}
                     type="email"
                     placeholder={"example@mail.com"}

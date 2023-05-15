@@ -14,7 +14,6 @@ import cardIcon from "../../assets/icons/card.svg";
 import calenderIcon from "../../assets/icons/calendar.svg";
 import { BsArrowLeft } from "react-icons/bs";
 
-
 //formik
 import { useFormik } from "formik";
 
@@ -44,7 +43,7 @@ const Register = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar active="registerActive" />
+        <ProgressBar active={1} />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
@@ -75,7 +74,7 @@ const Register = () => {
                 </div>
                 <div className="mb-8">
                   <TextInput
-                    icon={<img src={calenderIcon} alt="calenderIcon"/>}
+                    icon={<img src={calenderIcon} alt="calenderIcon" />}
                     label={"تاریخ تولد"}
                     type="text"
                     placeholder={"1370/06/31"}
