@@ -10,6 +10,8 @@ import * as Yup from "yup";
 //icon
 import { BsArrowLeft } from "react-icons/bs";
 import { TbDeviceMobile } from "react-icons/tb";
+import { GrCompliance } from "react-icons/gr";
+import { TbMessage2 } from "react-icons/tb";
 
 //components
 import ProgressBar from "../progressBar";
@@ -33,7 +35,7 @@ const VerificationCode = () => {
   });
 
   return (
-    <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
+    <div className="w-full h-screen bg-[#E8F4FF] px-8 py-8 flex ">
       <div className="flex w-full h-full">
         <ProgressBar active="verificationCodeActive" />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
@@ -55,8 +57,46 @@ const VerificationCode = () => {
                     {...formik.getFieldProps("phoneNumber")}
                   />
                 </div>
-                <div>
-                  
+                <div className="h-[60px] bg-[#E8F4FF] rounded-[50px] flex items-center">
+                  <div className="w-10 h-5 mr-5">
+                    <GrCompliance size={24} />
+                  </div>
+                  <p className="text-[14px]">
+                    کد تائید به شماره 09015671346 ارسال شده است. این کد تا 02:00
+                    دقیقه دیگر معتبر است
+                  </p>
+                </div>
+                <div className="flex justify-center items-center flex-col">
+                  <p className="mt-6 mb-[10px]">کد تائید</p>
+                  <div className="flex items-center">
+                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
+                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
+                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
+                    <span className="w-[60px] h-[60px] border border-solid border-[#D6D6D6] inline-block rounded-[14px] mx-[5px]"></span>
+                  </div>
+
+                  <Link
+                    to="/verificationOfPhoneNumber"
+                    className="button mb-8 mt-5"
+                  >
+                    <button>تائید شماره همراه</button>
+                  </Link>
+                </div>
+
+                <div className="w-full">
+                  <TextInput
+                    icon={<TbMessage2 size={30} />}
+                    label={"ایمیل"}
+                    type="email"
+                    placeholder={"example@mail.com"}
+                    {...formik.getFieldProps("email")}
+                  />
+
+                  {formik.errors.email ? (
+                    <div className="text-rose-700 text-[14px]">
+                      {formik.errors.email}
+                    </div>
+                  ) : null}
                 </div>
               </form>
             </div>
