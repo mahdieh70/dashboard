@@ -47,7 +47,7 @@ const LogIn = () => {
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex flex-row-reverse ">
       <div className="w-2/4 bg-white  rounded-tl-lg rounded-bl-lg">
         <div className="flex justify-center items-center flex-col">
-          <div className="text-center">
+          <div className="flex items-center flex-col">
             <img
               src={logo}
               alt="logo"

@@ -22,12 +22,12 @@ const SendingCode = () => {
   const formik = useFormik({
     initialValues: {
       phoneNumber: "",
-      nationalCode: "",
+      email: "",
     },
     //form validation
     validationSchema: Yup.object({
       number: Yup.string().required("لطفا شماره همراه خود را وارد کنید"),
-      nationalCode: Yup.string().required("لطفا کد ملی خود را وارد کنید"),
+      email: (value) => {},
     }),
     onSubmit: () => {
       console.log("submit");
@@ -36,7 +36,7 @@ const SendingCode = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar />
+        <ProgressBar active="sendingCodeActive"/>
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
@@ -56,7 +56,7 @@ const SendingCode = () => {
                     {...formik.getFieldProps("phoneNumber")}
                   />
                   <button
-                    onClick={()=>navigate("/verificationCode")}
+                    onClick={() => navigate("/verificationCode")}
                     className="absolute top-[33.33%] left-[20px] text-[#388AEA]"
                   >
                     ارسال کد
@@ -76,10 +76,7 @@ const SendingCode = () => {
           </div>
           <div className="flex flex-row-reverse justify-between items-center mt-6 ">
             <a href="#" className="no-underline">
-              <button
-                type="submit"
-                className="deActiveButton"
-              >
+              <button type="submit" className="deActiveButton">
                 مرحله بعد <BsArrowLeft />
               </button>
             </a>
