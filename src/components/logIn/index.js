@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //logo
 import logo from "../../assets/Logo.png";
 
-//icons
-import { RiLockPasswordLine } from "react-icons/ri";
-import { TbMessage2 } from "react-icons/tb";
+//icon
+import messageText from "../../assets/icons/messagetext1.svg";
+import lock from "../../assets/icons/lock.svg";
+import eye from "../../assets/icons/eye.svg";
 import { BsArrowLeft } from "react-icons/bs";
-
-import { Link } from "react-router-dom";
 
 //image
 import image from "../../assets/images/Rectangle 2 (1).png";
@@ -69,7 +69,7 @@ const LogIn = () => {
             >
               <div className="mb-10 w-full">
                 <TextInput
-                  icon={<TbMessage2 size={30} />}
+                  icon={<img src={messageText} alt="messageTextIcon" />}
                   label={"ایمیل"}
                   type="email"
                   placeholder={"example@mail.com"}
@@ -85,7 +85,7 @@ const LogIn = () => {
 
               <div className="mb-10 w-full">
                 <TextInput
-                  icon={<RiLockPasswordLine size={30} />}
+                  icon={<img src={lock} alt="lockIcon" />}
                   label={"رمز عبور"}
                   type="password"
                   placeholder={"حداقل 8 کاراکتر"}
@@ -101,12 +101,9 @@ const LogIn = () => {
               {/* <button onClick={handleRegister}>fake register</button> */}
 
               <a href="#" className="no-underline ">
-              <button
-                type="submit"
-                className="button"
-              >
-                ورود به حساب <BsArrowLeft size={22} />
-              </button>
+                <button type="submit" className="button">
+                  ورود به حساب <BsArrowLeft size={22} />
+                </button>
               </a>
             </form>
           </div>

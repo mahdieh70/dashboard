@@ -7,11 +7,14 @@ import { useFormik } from "formik";
 //yup
 import * as Yup from "yup";
 
+//icons
+import mobileIcon from "../../assets/icons/mobile.svg";
+import clipBoardTickIcon from "../../assets/icons/clipboardtick.svg";
+import messageText from "../../assets/icons/messagetext1.svg";
+
 //icon
 import { BsArrowLeft } from "react-icons/bs";
-import { TbDeviceMobile } from "react-icons/tb";
-import { GrCompliance } from "react-icons/gr";
-import { TbMessage2 } from "react-icons/tb";
+
 
 //components
 import ProgressBar from "../progressBar";
@@ -50,7 +53,7 @@ const VerificationCode = () => {
               <form>
                 <div className="mb-8">
                   <TextInput
-                    icon={<TbDeviceMobile size={30} />}
+                    icon={<img src={mobileIcon} alt="mobileIcon" />}
                     label={"شماره همراه"}
                     type="number"
                     placeholder={"09112564798"}
@@ -59,7 +62,7 @@ const VerificationCode = () => {
                 </div>
                 <div className="h-[60px] bg-[#E8F4FF] rounded-[50px] flex items-center">
                   <div className="w-10 h-5 mr-5">
-                    <GrCompliance size={24} />
+                    <img src={clipBoardTickIcon} alt="clipBoardTickIcon"/>
                   </div>
                   <p className="text-[14px]">
                     کد تائید به شماره 09015671346 ارسال شده است. این کد تا 02:00
@@ -85,7 +88,7 @@ const VerificationCode = () => {
 
                 <div className="w-full">
                   <TextInput
-                    icon={<TbMessage2 size={30} />}
+                    icon={<img src={messageText} alt="messageText"/>}
                     label={"ایمیل"}
                     type="email"
                     placeholder={"example@mail.com"}

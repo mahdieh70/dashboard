@@ -8,10 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 import ProgressBar from "../progressBar";
 
 //icons
-import { HiOutlineUserCircle } from "react-icons/hi";
-import { HiOutlineCreditCard } from "react-icons/hi";
-import { BiCalendar } from "react-icons/bi";
+
+import usersquerIcon from "../../assets/icons/usersquare.svg";
+import cardIcon from "../../assets/icons/card.svg";
+import calenderIcon from "../../assets/icons/calendar.svg";
 import { BsArrowLeft } from "react-icons/bs";
+
 
 //formik
 import { useFormik } from "formik";
@@ -42,7 +44,7 @@ const Register = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar active="registerActive"/>
+        <ProgressBar active="registerActive" />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
@@ -55,7 +57,7 @@ const Register = () => {
               <form>
                 <div className="mb-8">
                   <TextInput
-                    icon={<HiOutlineUserCircle size={30} />}
+                    icon={<img src={usersquerIcon} alt="usersquerIcon" />}
                     label={"نام و نام خانوادگی"}
                     type="fullname"
                     placeholder={"محمد حسین رحمتی"}
@@ -64,7 +66,7 @@ const Register = () => {
                 </div>
                 <div className="mb-8">
                   <TextInput
-                    icon={<HiOutlineCreditCard size={30} />}
+                    icon={<img src={cardIcon} alt="cardIcon" />}
                     label={"کد ملی"}
                     type="number"
                     placeholder={"208-1235-456"}
@@ -73,7 +75,7 @@ const Register = () => {
                 </div>
                 <div className="mb-8">
                   <TextInput
-                    icon={<BiCalendar size={30} />}
+                    icon={<img src={calenderIcon} alt="calenderIcon"/>}
                     label={"تاریخ تولد"}
                     type="text"
                     placeholder={"1370/06/31"}
@@ -92,7 +94,6 @@ const Register = () => {
               <button type="submit" className="button">
                 مرحله بعد <BsArrowLeft />
               </button>
-
             </Link>
           </div>
         </div>

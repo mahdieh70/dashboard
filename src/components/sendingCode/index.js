@@ -6,6 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import ProgressBar from "../progressBar";
 
 //icons
+import mobileIcon from "../../assets/icons/mobile.svg";
+import messageText from "../../assets/icons/messagetext1.svg";
+
+//icons
 import { TbDeviceMobile } from "react-icons/tb";
 import { TbMessage2 } from "react-icons/tb";
 import { BsArrowLeft } from "react-icons/bs";
@@ -36,7 +40,7 @@ const SendingCode = () => {
   return (
     <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
       <div className="flex w-full h-full">
-        <ProgressBar active="sendingCodeActive"/>
+        <ProgressBar active="sendingCodeActive" />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
           <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
@@ -49,7 +53,7 @@ const SendingCode = () => {
               <form>
                 <div className="mb-8 relative">
                   <TextInput
-                    icon={<TbDeviceMobile size={30} />}
+                    icon={<img src={mobileIcon} alt="mobileIcon" />}
                     label={"شماره همراه"}
                     type="number"
                     placeholder={"09112564798"}
@@ -64,7 +68,7 @@ const SendingCode = () => {
                 </div>
                 <div className="mb-8">
                   <TextInput
-                    icon={<TbMessage2 size={30} />}
+                    icon={<img src={messageText} alt="messageTextIcon"/>}
                     label={"ایمیل"}
                     type="email"
                     placeholder={"example@mail.com"}
