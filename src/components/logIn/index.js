@@ -7,7 +7,6 @@ import logo from "../../assets/logo/Logo (1).svg";
 //icon
 import messageText from "../../assets/icons/messagetext1.svg";
 import lock from "../../assets/icons/lock.svg";
-import eye from "../../assets/icons/eye.svg";
 import { BsArrowLeft } from "react-icons/bs";
 
 //image

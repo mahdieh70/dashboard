@@ -1,6 +1,8 @@
 import React from "react";
 import SideBar from "./sidebar";
 import Navbar from "./navbar";
+import CryptoCurrencySlider from "./cryptocurrencySlider";
+import Sliders from "./cryptocurrencySlider/sliders";
 
 const Dashboard = () => {
   return (
@@ -8,8 +10,13 @@ const Dashboard = () => {
       <div className="h-full">
         <SideBar />
       </div>
-      <div className="flex justify-between items-center h-20 bg-white w-full rounded-[10px] py-4 px-4">
-        <Navbar />
+      <div className="w-full">
+        <div className="flex justify-between items-center h-20 bg-white w-full rounded-[10px] py-4 px-4">
+          <Navbar />
+        </div>
+        <div>
+          <Sliders />
+        </div>
       </div>
     </div>
   );
