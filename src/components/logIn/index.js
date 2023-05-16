@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //logo
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/logo/Logo (1).svg";
 
 //icon
 import messageText from "../../assets/icons/messagetext1.svg";
@@ -98,11 +98,11 @@ const LogIn = () => {
               </div>
               {/* <button onClick={handleRegister}>fake register</button> */}
 
-              <a href="#" className="no-underline ">
+              <Link to="/dashboard" className="no-underline ">
                 <button type="submit" className="button">
                   ورود به حساب <BsArrowLeft size={22} />
                 </button>
-              </a>
+              </Link>
             </form>
           </div>
         </div>

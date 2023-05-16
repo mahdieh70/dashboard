@@ -2,7 +2,7 @@ import React from "react";
 import { Item } from "./item";
 
 //logo
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/logo/Logo (1).svg"
 
 const ProgressBar = ({ active }) => {
   return (
