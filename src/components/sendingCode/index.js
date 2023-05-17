@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import PinInput from "react-pin-input";
 import clipBoardTickIcon from "../../assets/icons/clipboardtick.svg";
 import { TextInput } from "../textInput";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 //components
 import ProgressBar from "../progressBar";
+
 //icons
 import mobileIcon from "../../assets/icons/mobile.svg";
 import messageText from "../../assets/icons/messagetext1.svg";
 import { BsArrowLeft } from "react-icons/bs";
+
 //formik
 import { useFormik } from "formik";
 
 //yup
 import * as Yup from "yup";
+
 const PINCODE = "1234";
 
 const SendingCode = () => {
@@ -63,7 +67,7 @@ const SendingCode = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex ">
+    <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex">
       <div className="flex w-full h-full">
         <ProgressBar active={2} />
         <div className="bg-white w-[75%] h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
@@ -164,7 +168,7 @@ const SendingCode = () => {
             </div>
           </div>
           <div className="flex flex-row-reverse justify-between items-center mt-6 ">
-            <a href="#" className="no-underline">
+            <Link to="/locationInfo" className="no-underline">
               <button
                 onClick={handleSub}
                 type="submit"
@@ -172,7 +176,7 @@ const SendingCode = () => {
               >
                 مرحله بعد <BsArrowLeft />
               </button>
-            </a>
+            </Link>
             <a
               onClick={() => navigate(-1)}
               href="#"
