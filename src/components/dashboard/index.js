@@ -3,6 +3,7 @@ import SideBar from "./sidebar";
 import Navbar from "./navbar";
 import CryptoCurrencySlider from "./cryptocurrencySlider";
 import Sliders from "./cryptocurrencySlider/sliders";
+import PieChart from "./roundPieChart";
 
 const Dashboard = () => {
   return (
@@ -17,6 +18,7 @@ const Dashboard = () => {
         <div>
           <Sliders />
         </div>
+        <PieChart/>
       </div>
     </div>
   );
