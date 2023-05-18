@@ -5,7 +5,7 @@ import userImage from "../../../assets/images/Rectangle 17.png";
 
 const Navbar = () => {
   return (
-    <>
+    <div className="h-20 w-full bg-white flex items-center justify-between rounded-[16px] px-4 py-4">
       <img src={hamburgerMenu} alt="menu" />
       <div className="flex items-center gap-[19px]">
         <div className="relative">
@@ -15,7 +15,7 @@ const Navbar = () => {
 
         <img src={userImage} alt="userImage" />
       </div>
-    </>
+    </div>
   );
 };
 

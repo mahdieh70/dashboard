@@ -1,11 +1,37 @@
 import React from "react";
+import Chart from "react-apexcharts";
 
 const RoundPieChart = () => {
+  const options = {
+    chart: {
+      height: 100,
+      type: "pie",
+    },
+    labels: ["بیت کوین", "اتریوم", "ترون"],
+    colors: ["#F7931A", "#7EB6F7", "#2E2E2E"],
+    dataLabels: {
+      enabled: true,
+      textAnchor: "middle",
+      style: {
+        colors: ["#fff"],
+      },
+    },
+  };
+
   return (
     <div className="w-[372px] h-[218px] bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px] mt-10">
+      <div className="w-[180px] h-[180px]">
+        <Chart
+          type="pie"
+          width={400}
+          height={400}
+          series={[350, 240, 320]}
+          options={options}
+        ></Chart>
+      </div>
       <div>
         <p>دارایی های کیف پول</p>
-        <div className="mt-[22px]">
+        {/* <div className="mt-[22px]">
           <div className="flex items-center">
             <span className="w-[10px] h-[10px] bg-[#F7931A] inline-block rounded-full "></span>
             <p className="mx-[10px]">بیتکوین</p>
@@ -21,9 +47,8 @@ const RoundPieChart = () => {
             <p className="mx-[10px]">ترون</p>
             <span className="text-[13px] text-[#AEAEAE]">25درصد</span>
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="w-[180px] h-[180px] bg-[red]"></div>
     </div>
   );
 };
