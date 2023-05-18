@@ -19,18 +19,17 @@ const RoundPieChart = () => {
   };
 
   return (
-    <div className="w-[372px] h-[218px] bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px] mt-10">
-      <div className="w-[180px] h-[180px]">
-        <Chart
-          type="pie"
-          width={400}
-          height={400}
-          series={[350, 240, 320]}
-          options={options}
-        ></Chart>
-      </div>
+    <div className="w-[33.33%] h-[218px] bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px] ">
+      <Chart
+        type="pie"
+        width={300}
+        height={300}
+        series={[350, 240, 320]}
+        options={options}
+      ></Chart>
+
       <div>
-        <p>دارایی های کیف پول</p>
+        {/* <p>دارایی های کیف پول</p> */}
         {/* <div className="mt-[22px]">
           <div className="flex items-center">
             <span className="w-[10px] h-[10px] bg-[#F7931A] inline-block rounded-full "></span>

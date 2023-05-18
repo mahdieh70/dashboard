@@ -13,3 +13,16 @@ const getCoin = async () => {
 };
 
 export { getCoin };
+
+
+const SECOND_URL = "https://api.coingecko.com/api/v3/search/trending";
+const getTradingValue = async () => {
+  try {
+    const response = await axios.get(`${SECOND_URL}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getTradingValue };

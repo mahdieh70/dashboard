@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { getCoin } from "../../../services/api";
 
+import chart from "../../../assets/images/NBcharts-lineChats.svg";
+
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
 //swiper
@@ -36,7 +38,7 @@ const CryptoCurrencySlider = () => {
   }, []);
 
   return (
-    <div className="max-w-screen mt-[10px]">
+    <div className="max-w-screen mt-3 mb-3">
       <div>
         <div className="w-full">
           <div>
@@ -49,27 +51,43 @@ const CryptoCurrencySlider = () => {
                 "--swiper-pagination-bullet-size": "15px",
                 "--swiper-pagination-bullet-horizontal-gap": "6px",
               }}
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
               spaceBetween={30}
               slidesPerView={4}
               loop={true}
-              navigation={{ clickable: true }}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              // navigation={{ clickable: true }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
             >
               {coins.map((coin) => (
                 <SwiperSlide key={coin.id}>
-                  <div className=" bg-white h-[180px] rounded-[16px]">
-                    <div>
-                      <div>
-                        <img src={coin.image} alt={coin.name}/>
+                  <div className=" bg-white h-[180px] rounded-[16px] px-3 py-3">
+                    <div className="flex justify-between">
+                      <div className="flex">
+                        <div className="w-[46px] h-[46px]">
+                          <img src={coin.image} alt={coin.name} />
+                        </div>
+                        <div>
+                          <p>{coin.name}</p>
+                          <p className="uppercase text-[#AEAEAE] text-[]">
+                            {coin.symbol}
+                          </p>
+                        </div>
                       </div>
-                      <div></div>
+                      <div className="w-[70px]">
+                        <p className="text-[#29C57A]">
+                          {coin.price_change_percentage_24h}%
+                        </p>
+                        <p className=" text-[14px]">
+                          {coin.current_price} دلار
+                        </p>
+                      </div>
                     </div>
-                    <div></div>
-                    
+                    <div className=" w-full h-1/2 inline-block">
+                      <img src={chart} alt="chart" />
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}
