@@ -6,10 +6,12 @@ import chart from "../../../assets/images/NBcharts-lineChats.svg";
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
+import { convertPxToVh } from "../../../utils/convertUnit";
+
 //swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
@@ -38,32 +40,27 @@ const CryptoCurrencySlider = () => {
   }, []);
 
   return (
-    <div className="max-w-screen mt-3 mb-3">
+    <div className="max-w-screen mt-3 mb-3 px-8">
       <div>
         <div className="w-full">
           <div>
             <Swiper
-              style={{
-                "--swiper-pagination-color": "#FFBA08",
-
-                "--swiper-pagination-bullet-inactive-color": "#999999",
-                "--swiper-pagination-bullet-inactive-opacity": "1",
-                "--swiper-pagination-bullet-size": "15px",
-                "--swiper-pagination-bullet-horizontal-gap": "6px",
-              }}
-              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
               spaceBetween={30}
               slidesPerView={4}
               loop={true}
-              // navigation={{ clickable: true }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              navigation={true}
+              // autoplay={{
+              //   delay: 3000,
+              //   disableOnInteraction: false,
+              // }}
             >
               {coins.map((coin) => (
                 <SwiperSlide key={coin.id}>
-                  <div className=" bg-white h-[180px] rounded-[16px] px-3 py-3">
+                  <div
+                    className=" bg-white rounded-[16px] px-3 py-3"
+                    style={{ height: `${convertPxToVh(171)}vh` }}
+                  >
                     <div className="flex justify-between">
                       <div className="flex">
                         <div className="w-[46px] h-[46px]">

@@ -31,10 +31,10 @@ const LocationInfo = () => {
   const formik = useFormik({
     initialValues: {
       province: "27",
-      city: "1",
-      address: "",
-      lat: "",
-      lan: "",
+      city: "",
+      address: "ایران مازندران ساری",
+      lat: "64.5691",
+      lan: "36.7589",
     },
     //form validation
     validationSchema: Yup.object().shape({

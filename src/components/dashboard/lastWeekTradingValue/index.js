@@ -1,54 +1,51 @@
-import React, { useEffect, useState } from "react";
-import Chart from "react-apexcharts";
+import React from "react";
 import {
   Chart as ChartJS,
-  BarElement,
   CategoryScale,
   LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
 
-import { getTradingValue } from "../../../services/api";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
-
-const LastWeekTradingValue = () => {
-  const [tradeValue, setTradeValue] = useState([]);
-
-  const series = [
-    //data on the y-axis
-    {
-      name: "value of trading",
-      data: [0, 25, 50, 75, 100],
-    },
-  ];
-
-  const options = {
-    //data on the x-axis
-    chart: { id: "bar-chart" },
-    xaxis: {
-      categories: [""],
-    },
-  };
-
- 
-
-    useEffect(() => {
-      const fetchApi = async () => {
-        const data = await getTradingValue();
-        setTradeValue(data);
-      };
-      fetchApi();
-    }, []);
-
-  
-  return (
-    <div className="w-[33.33%] h-[218px] bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px]">
-      <Chart options={options} series={series} type="bar" width="372" height="218"/>
-    </div>
-  );
+export const options = {
+  responsive: true,
+  plugins: {
+    // legend: {
+    //   position: 'top',
+    // },
+    // title: {
+    //   display: true,
+    //   text: 'ارزش معاملات هفته گذشته',
+    // },
+  },
 };
 
-export default LastWeekTradingValue;
+const labels = ["", "", "", "", "", "", ""];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "#388AEA",
+    },
+  ],
+};
+
+export function LastWeekTradingValue() {
+  return <Bar options={options} data={data} />;
+}

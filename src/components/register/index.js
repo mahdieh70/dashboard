@@ -20,8 +20,25 @@ import { useFormik } from "formik";
 //yup
 import * as Yup from "yup";
 import { validationNationalCode } from "../../utils/validationNationalCode";
+import { axiosUserInstance } from "../../services/axiosInstance";
 
 const Register = () => {
+  //   {
+  //     "name":"Clark Kent",
+  //     "email":"superman@gmail.com",
+  //     "phone":"5555551234",
+  //     "password":"123456",
+  //     "password_confirmation":"123456"
+  // }
+  const registerUser = async () => {
+    try {
+      axiosUserInstance.post("register", {
+        data:{
+
+        }
+      });
+    } catch (e) {}
+  };
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -42,7 +59,8 @@ const Register = () => {
       date: Yup.string().required("لطفا تاریخ تولد خود را وارد کنید"),
     }),
     onSubmit: () => {
-      navigate("/sendingCode");
+      registerUser()
+      // navigate("/sendingCode");
     },
   });
   const handleSubmitForm = () => {
@@ -72,7 +90,7 @@ const Register = () => {
                     {...formik.getFieldProps("fullname")}
                   />
                   {formik.errors.fullname ? (
-                    <div className="text-rose-700 text-[14px]">
+                    <div className="text-rose-500 text-[14px]">
                       {formik.errors.fullname}
                     </div>
                   ) : null}
@@ -86,7 +104,7 @@ const Register = () => {
                     {...formik.getFieldProps("nationalCode")}
                   />
                   {formik.errors.nationalCode ? (
-                    <div className="text-rose-700 text-[14px]">
+                    <div className="text-rose-500 text-[14px]">
                       {formik.errors.nationalCode}
                     </div>
                   ) : null}

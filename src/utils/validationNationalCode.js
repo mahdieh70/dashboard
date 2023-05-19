@@ -8,3 +8,4 @@ export function validationNationalCode(value) {
 
   return sum < 2 ? check === sum : check + sum === 11;
 }
+

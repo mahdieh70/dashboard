@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import hamburgerMenu from "../../../assets/icons/Vector.png";
 import notificationBing from "../../../assets/icons/notificationbing.svg";
 import userImage from "../../../assets/images/Rectangle 17.png";
+import { convertPxToVh } from "../../../utils/convertUnit";
 
-const Navbar = ({clickHandler}) => {
-
-
- 
+const Navbar = ({ clickHandler }) => {
   return (
-    <div className=" w-full bg-white flex items-center justify-between rounded-[16px] px-4 py-4">
+    <div
+      className=" w-full bg-white flex items-center justify-between rounded-[16px] px-[16px]"
+      style={{ height: `${convertPxToVh(79)}vh` }}
+    >
       <div className="cursor-pointer" onClick={clickHandler}>
         <img src={hamburgerMenu} alt="menu" />
       </div>

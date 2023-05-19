@@ -25,7 +25,7 @@ const Modal = ({ isShow, children }) => {
                 style={{ backgroundColor: "rgb(0 0 0 / 70%)" }}
               />
               <div className="fixed w-full h-full overflow-auto">
-                <div className="w-[60%] my-[100px] mx-auto bg-white relative rounded-[24px] px-[18px] py-[18px]">
+                <div className="w-[50%] my-[100px] mx-auto bg-white relative rounded-[24px] px-[18px] py-[18px]">
                   {children}
                 </div>
                

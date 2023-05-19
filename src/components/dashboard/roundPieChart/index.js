@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import { convertPxToVh } from "../../../utils/convertUnit";
 
 const RoundPieChart = () => {
   const options = {
@@ -19,7 +20,7 @@ const RoundPieChart = () => {
   };
 
   return (
-    <div className="w-[33.33%] h-[218px] bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px] ">
+    <div className="w-[33.33%]  bg-white rounded-[16px] px-[13px] py-[14px] flex gap-[38px] "  style={{ height: `${convertPxToVh(218)}vh` }}>
       <Chart
         type="pie"
         width={300}
