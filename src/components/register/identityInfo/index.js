@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import { TextInput } from "../../textInput";
 
-import { Link, useNavigate } from "react-router-dom";
-
-//components
-
-import ProgressBar from "../../progressBar";
-
 //icons
 
 import usersquerIcon from "../../../assets/icons/usersquare.svg";
@@ -21,7 +15,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { validationNationalCode } from "../../../utils/validationNationalCode";
 import { axiosUserInstance } from "../../../services/axiosInstance";
-import {RegisterContext} from "../context"
+import { RegisterContext } from "../context";
 
 const IdentityInfo = ({ increaseStepHandler }) => {
   //   {
@@ -31,7 +25,7 @@ const IdentityInfo = ({ increaseStepHandler }) => {
   //     "password":"123456",
   //     "password_confirmation":"123456"
   // }
-  const {getData} = useContext(RegisterContext)
+  const { getData } = useContext(RegisterContext);
   const registerUser = async () => {
     try {
       axiosUserInstance.post("register", {
@@ -43,6 +37,7 @@ const IdentityInfo = ({ increaseStepHandler }) => {
     initialValues: {
       fullname: "",
       nationalCode: "",
+      date: "",
     },
     //form validation
     validationSchema: Yup.object({
@@ -58,9 +53,8 @@ const IdentityInfo = ({ increaseStepHandler }) => {
       date: Yup.string().required("لطفا تاریخ تولد خود را وارد کنید"),
     }),
     onSubmit: () => {
-      getData({fullname:formik.values.fullname,})
+      getData({ fullname: formik.values.fullname });
       increaseStepHandler();
-      
     },
   });
   const handleSubmitForm = () => {
@@ -69,15 +63,15 @@ const IdentityInfo = ({ increaseStepHandler }) => {
 
   return (
     <div className=" w-full h-full">
-      <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
+      <div className="flex items-center flex-col h-[76vh] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
         <div>
           <p className="text-[#388AEA]">مرحله 1 از 3</p>
           <p className="pt-2 mb-8 text-[#1e1e1e]">
             لطفا اطلاعات خود را با دقت وارد نمائید
           </p>
         </div>
-        <div className="w-full pt-5">
-          <form onSubmit={formik.handleSubmit}>
+        <div className="w-full flex justify-center items-center">
+          <form onSubmit={formik.handleSubmit} className="w-[580px]">
             <div className="mb-8">
               <TextInput
                 icon={<img src={usersquerIcon} alt="usersquerIcon" />}
@@ -86,11 +80,13 @@ const IdentityInfo = ({ increaseStepHandler }) => {
                 placeholder={"محمد حسین رحمتی"}
                 {...formik.getFieldProps("fullname")}
               />
-              {formik.errors.fullname ? (
-                <div className="text-rose-500 text-[14px]">
-                  {formik.errors.fullname}
-                </div>
-              ) : null}
+              <div className="text-right">
+                {formik.errors.fullname ? (
+                  <div className="text-rose-500 text-[14px]">
+                    {formik.errors.fullname}
+                  </div>
+                ) : null}
+              </div>
             </div>
             <div className="mb-8">
               <TextInput
@@ -100,11 +96,13 @@ const IdentityInfo = ({ increaseStepHandler }) => {
                 placeholder={"208-1235-456"}
                 {...formik.getFieldProps("nationalCode")}
               />
-              {formik.errors.nationalCode ? (
-                <div className="text-rose-500 text-[14px]">
-                  {formik.errors.nationalCode}
-                </div>
-              ) : null}
+              <div className="text-right">
+                {formik.errors.nationalCode ? (
+                  <div className="text-rose-500 text-[14px]">
+                    {formik.errors.nationalCode}
+                  </div>
+                ) : null}
+              </div>
             </div>
             <div className="mb-8">
               <TextInput
@@ -114,16 +112,23 @@ const IdentityInfo = ({ increaseStepHandler }) => {
                 placeholder={"1370/06/31"}
                 {...formik.getFieldProps("date")}
               />
+              <div className="text-right">
+                {formik.errors.date ? (
+                  <div className="text-rose-500 text-[14px]">
+                    {formik.errors.date}
+                  </div>
+                ) : null}
+              </div>
             </div>
           </form>
         </div>
       </div>
-      <div className="flex flex-row-reverse mt-6">
-        <Link className="no-underline">
+      <div className="flex flex-row-reverse items-center h-[11vh]">
+        <a className="no-underline">
           <button onClick={handleSubmitForm} type="submit" className="button">
             مرحله بعد <BsArrowLeft />
           </button>
-        </Link>
+        </a>
       </div>
     </div>
   );

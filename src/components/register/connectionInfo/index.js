@@ -65,17 +65,16 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
 
   return (
     <div className=" w-full h-full">
-      <div className="bg-white  h-full rounded-tl-lg rounded-bl-lg py-8 px-20">
-        <div className="flex items-center flex-col h-[90%] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
+        <div className="flex items-center flex-col h-[76vh] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
           <div>
             <p className="text-[#388AEA]">مرحله 2 از 3</p>
             <p className="pt-2 mb-8 text-[#1e1e1e]">
               لطفا اطلاعات خود را با دقت وارد نمائید
             </p>
           </div>
-          <div className="w-full pt-5 relative">
-            <form>
-              <div className="mb-8 relative">
+          <div className="w-full flex justify-center items-center">
+            <form className="w-[580px]">
+              <div className="mb-4 relative">
                 <TextInput
                   icon={<img src={mobileIcon} alt="mobileIcon" />}
                   label={"شماره همراه"}
@@ -137,7 +136,7 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
                         e.preventDefault();
                         handleOnConfirmPincode();
                       }}
-                      className="button mb-8 mt-5"
+                      className="button mb-8 mt-2"
                     >
                       تائید شماره همراه
                     </button>
@@ -162,7 +161,7 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
             </form>
           </div>
         </div>
-        <div className="flex flex-row-reverse justify-between items-center mt-6 ">
+        <div className="flex flex-row-reverse justify-between items-center h-[11vh]">
           <button onClick={handleSub} type="submit" className="deActiveButton">
             مرحله بعد <BsArrowLeft />
           </button>
@@ -176,7 +175,7 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
           </a>
         </div>
       </div>
-    </div>
+   
   );
 };
 

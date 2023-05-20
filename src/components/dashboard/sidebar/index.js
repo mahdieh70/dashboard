@@ -10,7 +10,7 @@ import logout from "../../../assets/icons/logout.png";
 const SideBar = ({ showSidebar }) => {
   return (
     <>
-      <div className={showSidebar?"max-w-[250px] h-full":"w-0 fixed z-[1] right-1 overflow-x-hidden"}>
+      <div className={showSidebar?"max-w-[250px] h-full":"w-0 fixed z-[1] right-1 overflow-x-hidden inline-block"} style={{transition:"0.3s"}}>
         <div className="h-full bg-white rounded-[10px] px-[29px] ">
           <div className="flex items-center flex-col border-b border-solid border-[#D6D6D6]">
             <img src={logo} alt="logo" />
