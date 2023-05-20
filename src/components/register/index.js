@@ -3,6 +3,7 @@ import ProgressBar from "../progressBar";
 import { IdentityInfo } from "./identityInfo";
 import { ConnectionInfo } from "./connectionInfo";
 import { LocationInfo } from "./locationInfo";
+import { RegisterContext } from "./context";
 
 function Register() {
   const [step, setStep] = useState(1);
@@ -31,7 +32,7 @@ function Register() {
             />
           ) : step === 3 ? (
             <LocationInfo
-              increaseStepHandler={increaseStepHandler}
+              // increaseStepHandler={increaseStepHandler}
               decreaseStepHandler={decreaseStepHandler}
             />
           ) : null}
@@ -40,5 +41,20 @@ function Register() {
     </div>
   );
 }
+const Provider = () => {
+  const [userData, setUserData] = useState(undefined);
+  const getData = () => {
+    setUserData();
+  };
+  //api call haminja anjam bedam
+  //data har form bayad dar state userData save shavad
+  //in data ha bayad iz tarigh getData gerefteh shavad
 
-export { Register };
+  return (
+    <RegisterContext.Provider value={{ userData, getData }}>
+      <Register />
+    </RegisterContext.Provider>
+  );
+};
+
+export { Provider as Register };

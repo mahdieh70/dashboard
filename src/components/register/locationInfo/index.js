@@ -60,8 +60,7 @@ const LocationInfo = ({decreaseStepHandler}) => {
       <Modal width={900} isShow={showModal}>
         <ModalContent onClose={() => setIsShowModal((prev) => !prev)} />
       </Modal>
-      <div className="w-full h-screen bg-[#E8F4FF] py-8 px-8 flex">
-        <div className="flex w-full h-full">
+      <div className="w-full h-full">
           <div className="flex items-center flex-col h-[90%] text-center border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
             <div>
               <p className="text-[#388AEA]">مرحله 3 از 3</p>
@@ -161,11 +160,11 @@ const LocationInfo = ({decreaseStepHandler}) => {
             </div>
           </div>
           <div className="flex flex-row-reverse justify-between items-center mt-6 ">
-            <Link to="/locationInfo" className="no-underline">
+            <a to="#" className="no-underline">
               <button type="submit" className="button">
                 ثبت نام <BsArrowLeft />
               </button>
-            </Link>
+            </a>
             <a
               onClick={() => navigate(-1)}
               href="#"
@@ -175,7 +174,7 @@ const LocationInfo = ({decreaseStepHandler}) => {
             </a>
           </div>
         </div>
-      </div>
+   
     </>
   );
 };

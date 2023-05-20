@@ -75,7 +75,7 @@ const CryptoCurrencySlider = () => {
                       </div>
                       <div className="w-[70px]">
                         <p className="text-[#29C57A]">
-                          {coin.price_change_percentage_24h}%
+                          {coin.price_change_percentage_24h.toFixed(2)}%
                         </p>
                         <p className=" text-[14px]">
                           {coin.current_price} دلار

@@ -62,7 +62,7 @@ const MostFavoriteCoins = () => {
                       {favorite.symbol}
                     </span>
                   </div>
-                  <p className="text-[14px] text-[#2AC479]">{favorite.circulating_supply}</p>
+                  <p className="text-[14px] text-[#2AC479]">{favorite.circulating_supply.toFixed(2)}</p>
                 </div>
               </>
             ))}

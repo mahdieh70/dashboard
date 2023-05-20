@@ -8,6 +8,7 @@ import PieChart from "./roundPieChart";
 import MostFavoriteCoins from "./mostFavoriteCoins";
 import { convertPxToVh } from "../../utils/convertUnit";
 
+
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const clickHandler = () => {
@@ -22,10 +23,7 @@ const Dashboard = () => {
             <Navbar clickHandler={clickHandler} />
             <CryptoCurrencySlider />
           </div>
-          <div
-            className="flex gap-[18px]"
-           
-          >
+          <div className="flex gap-[18px]">
             <PieChart />
             <div
               className="bg-white flex justify-center items-center rounded-[16px] px-4 py-4 "
@@ -36,12 +34,23 @@ const Dashboard = () => {
             >
               <LastWeekTradingValue />
             </div>
-            <div className="w-[33.33%] overflow-auto scrollbar-hide rounded-[16px]" style={{ height: `${convertPxToVh(545)}vh`,scrollbarWidth:"0px"}}>
+            <div
+              className="w-[33.33%] overflow-auto scrollbar-hide rounded-[16px]"
+              style={{
+                height: `${convertPxToVh(545)}vh`,
+                scrollbarWidth: "0px",
+              }}
+            >
               <MostFavoriteCoins />
+             
+              
+              
             </div>
+           
           </div>
         </div>
       </div>
+    
     </div>
   );
 };

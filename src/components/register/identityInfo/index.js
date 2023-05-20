@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TextInput } from "../../textInput";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { validationNationalCode } from "../../../utils/validationNationalCode";
 import { axiosUserInstance } from "../../../services/axiosInstance";
+import {RegisterContext} from "../context"
 
 const IdentityInfo = ({ increaseStepHandler }) => {
   //   {
@@ -30,6 +31,7 @@ const IdentityInfo = ({ increaseStepHandler }) => {
   //     "password":"123456",
   //     "password_confirmation":"123456"
   // }
+  const {getData} = useContext(RegisterContext)
   const registerUser = async () => {
     try {
       axiosUserInstance.post("register", {
@@ -37,7 +39,6 @@ const IdentityInfo = ({ increaseStepHandler }) => {
       });
     } catch (e) {}
   };
-  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -57,9 +58,9 @@ const IdentityInfo = ({ increaseStepHandler }) => {
       date: Yup.string().required("لطفا تاریخ تولد خود را وارد کنید"),
     }),
     onSubmit: () => {
-      // registerUser();
+      getData({fullname:formik.values.fullname,})
       increaseStepHandler();
-      // navigate("/sendingCode");
+      
     },
   });
   const handleSubmitForm = () => {
