@@ -32,7 +32,7 @@ const CryptoCurrencySlider = () => {
         <div className="w-full">
           <div>
             <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
               spaceBetween={30}
               slidesPerView={4}
               loop={true}
