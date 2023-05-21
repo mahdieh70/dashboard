@@ -1,4 +1,8 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
+
+//logo
 import logo from "../../../assets/logo/Logo (1).svg";
 
 //icons
@@ -7,10 +11,18 @@ import buyAndSell from "../../../assets/icons/arrangehorizontalsquare.png";
 import activity from "../../../assets/icons/activity.png";
 import wallet from "../../../assets/icons/emptywallet.png";
 import logout from "../../../assets/icons/logout.png";
+
 const SideBar = ({ showSidebar }) => {
   return (
     <>
-      <div className={showSidebar?"max-w-[250px] h-full":"w-0 fixed z-[1] right-1 overflow-x-hidden inline-block"} style={{transition:"0.3s"}}>
+      <div
+        className={
+          showSidebar
+            ? "max-w-[250px] h-full"
+            : "w-0 fixed z-[1] right-1 overflow-x-hidden inline-block"
+        }
+        style={{ transition: "0.3s" }}
+      >
         <div className="h-full bg-white rounded-[10px] px-[29px] ">
           <div className="flex items-center flex-col border-b border-solid border-[#D6D6D6]">
             <img src={logo} alt="logo" />
@@ -34,9 +46,11 @@ const SideBar = ({ showSidebar }) => {
                 <img src={wallet} alt="wallet" width={20} height={20} />
                 <span className="text-[#1E1E1E]">کیف پول</span>
               </li>
-              <li className="flex gap-4 items-center w-[193px] h-[49px] py-3 px-[18px] mt-6 mb-6">
-                <img src={logout} alt="logout" width={24} height={24} />
-                <span className="text-[#EA3838]">خروج</span>
+              <li className="flex gap-4 items-center w-[193px] h-[49px] py-3 px-[18px] mt-6 mb-6 cursor-pointer">
+                <Link to="/" className="flex gap-4">
+                  <img src={logout} alt="logout" width={24} height={24} />
+                  <span className="text-[#EA3838]">خروج</span>
+                </Link>
               </li>
             </ul>
           </div>

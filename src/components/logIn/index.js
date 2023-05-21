@@ -18,7 +18,7 @@ import { useFormik } from "formik";
 //yup
 import * as Yup from "yup";
 import { TextInput } from "../textInput";
-// import { axiosInstance } from "../../services/axiosInstance";
+
 
 const LogIn = () => {
   const formik = useFormik({
@@ -95,7 +95,6 @@ const LogIn = () => {
                   </div>
                 ) : null}
               </div>
-              {/* <button onClick={handleRegister}>fake register</button> */}
 
               <Link to="/dashboard" className="no-underline ">
                 <button type="submit" className="button">

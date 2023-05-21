@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 //portal
 import { createPortal } from "react-dom";
 
@@ -17,9 +18,11 @@ const Modal = ({ isShow, children }) => {
 
   return (
     <>
+    
       {isShow
         ? createPortal(
             <div className="fixed z-[999] w-full h-full top-0 left-0 overflow-auto">
+              
               <div
                 className="absolute w-full h-full top-0 left-0"
                 style={{ backgroundColor: "rgb(0 0 0 / 70%)" }}

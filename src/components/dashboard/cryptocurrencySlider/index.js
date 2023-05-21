@@ -1,32 +1,19 @@
 import React, { useEffect, useState } from "react";
 
+//api
 import { getCoin } from "../../../services/api";
 
-import chart from "../../../assets/images/NBcharts-lineChats.svg";
+//function
+import { convertPxToVh } from "../../../utils/convertUnit";
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
-
-import { convertPxToVh } from "../../../utils/convertUnit";
 
 //swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-// import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-
-// const test = [
-//   { price: 123232, name: "btc", id: 1, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 2, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 3, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 4, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 5, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 6, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 7, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 8, percent: 1.4 },
-//   { price: 123232, name: "btc", id: 9, percent: 1.4 },
-// ];
 
 const CryptoCurrencySlider = () => {
   const [coins, setCoins] = useState([]);
@@ -50,10 +37,10 @@ const CryptoCurrencySlider = () => {
               slidesPerView={4}
               loop={true}
               navigation={true}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
             >
               {coins.map((coin) => (
                 <SwiperSlide key={coin.id}>
@@ -82,9 +69,7 @@ const CryptoCurrencySlider = () => {
                         </p>
                       </div>
                     </div>
-                    <div className=" w-full h-1/2 inline-block">
-                      <img src={chart} alt="chart" />
-                    </div>
+                    <div className="w-full h-1/2"></div>
                   </div>
                 </SwiperSlide>
               ))}

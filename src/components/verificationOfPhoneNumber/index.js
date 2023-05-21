@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput } from "../textInput";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //components
 import ProgressBar from "../progressBar";
@@ -27,6 +27,7 @@ const VerificationOfPhoneNumber = () => {
       phoneNumber: "",
       email: "",
     },
+    
     //form validation
     validationSchema: Yup.object({
       number: Yup.string().required("لطفا شماره همراه خود را وارد کنید"),

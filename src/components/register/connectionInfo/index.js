@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PinInput from "react-pin-input";
 import clipBoardTickIcon from "../../../assets/icons/clipboardtick.svg";
 import { TextInput } from "../../textInput";
-import { Link, useNavigate } from "react-router-dom";
+
 
 //icons
 import mobileIcon from "../../../assets/icons/mobile.svg";
@@ -21,7 +21,7 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
   const [isSendingCode, setisSendingCode] = useState(false);
   const [pincode, setPincode] = useState("");
   const [isPincodeValid, setIspincodeValid] = useState(false);
-  const navigate = useNavigate();
+ 
 
   const formik = useFormik({
     initialValues: {
@@ -64,7 +64,7 @@ const ConnectionInfo = ({ increaseStepHandler, decreaseStepHandler }) => {
   };
 
   return (
-    <div className=" w-full h-full">
+    <div className="w-full h-full">
         <div className="flex items-center flex-col h-[76vh] text-center px-[130px] border border-solid border-[#D6D6D6] border-t-0 border-r-0 border-l-0">
           <div>
             <p className="text-[#388AEA]">مرحله 2 از 3</p>

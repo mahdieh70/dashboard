@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+
+//icons
 import hamburgerMenu from "../../../assets/icons/Vector.png";
 import notificationBing from "../../../assets/icons/notificationbing.svg";
 import userImage from "../../../assets/images/Rectangle 17.png";
+
+//functions
 import { convertPxToVh } from "../../../utils/convertUnit";
 
 const Navbar = ({ clickHandler }) => {

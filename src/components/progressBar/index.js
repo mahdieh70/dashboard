@@ -1,4 +1,6 @@
 import React from "react";
+
+//functions
 import { Item } from "./item";
 
 //logo

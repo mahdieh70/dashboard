@@ -3,22 +3,23 @@ import React, { useState } from "react";
 //icons
 import { BsArrowLeft } from "react-icons/bs";
 import location from "../../../assets/icons/location.svg";
-import { TextInput } from "../../textInput";
-import { Link, useNavigate } from "react-router-dom";
 import map from "../../../assets/icons/map1.svg";
 
+//components
+import { TextInput } from "../../textInput";
+import Modal from "../../modal";
+import ModalContent from "../../modalContent";
+
+//react-router
+import { useNavigate } from "react-router-dom";
+
+//formik
 import { useFormik } from "formik";
 
 //data
-
 import { cities } from "../../../data/cities";
 import { provinces } from "../../../data/provinces";
 
-//components
-
-
-import Modal from "../../modal";
-import ModalContent from "../../modalContent";
 
 //yup
 import * as Yup from "yup";

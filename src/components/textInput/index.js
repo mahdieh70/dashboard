@@ -31,13 +31,3 @@ const TextInput = ({
 
 export { TextInput };
 
-// const selectInput = ({ value, label, placeholder }) => {
-//   return (
-//     <div className="relative">
-//       <label className="absolute -top-4 mx-[41px] px-[10px] z-10 bg-white">
-//         {label}
-//       </label>
-//       <select></select>
-//     </div>
-//   );
-// };

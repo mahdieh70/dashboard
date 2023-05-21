@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+
+//components
 import SideBar from "./sidebar";
 import Navbar from "./navbar";
 import CryptoCurrencySlider from "./cryptocurrencySlider";
 import { LastWeekTradingValue } from "./lastWeekTradingValue";
-
 import PieChart from "./roundPieChart";
 import MostFavoriteCoins from "./mostFavoriteCoins";
-import { convertPxToVh } from "../../utils/convertUnit";
 
+
+//functions
+import { convertPxToVh } from "../../utils/convertUnit";
 
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -42,15 +45,10 @@ const Dashboard = () => {
               }}
             >
               <MostFavoriteCoins />
-             
-              
-              
             </div>
-           
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

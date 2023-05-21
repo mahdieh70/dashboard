@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+//formik
 import { useFormik } from "formik";
 
+//function
 import { getCoin } from "../../../services/api";
 
 const MostFavoriteCoins = () => {
