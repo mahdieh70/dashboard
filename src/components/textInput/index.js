@@ -3,6 +3,7 @@ const TextInput = ({
   onChange,
   onBlur,
   icon,
+  passIcon,
   label,
   placeholder,
   type,
@@ -25,9 +26,11 @@ const TextInput = ({
       <div className="flex items-center absolute top-[33.33%] right-[20px] w-10 h-5 border border-solid border-[#D6D6D6] border-t-0 border-b-0 border-r-0">
         {icon}
       </div>
+      <div className="absolute top-[33.33%] left-[20px] cursor-pointer">
+        {passIcon}
+      </div>
     </div>
   );
 };
 
 export { TextInput };
-
